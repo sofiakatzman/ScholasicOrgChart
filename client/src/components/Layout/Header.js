@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
-import { UserContext } from '../../functionality/UserContext';
+import React from 'react';
+// import { UserContext } from '../../functionality/UserContext';
 import Navigation from './Navigation/Navigation';
 
 
 const Header = () => {
-  const { user } = useContext(UserContext) || { user: null };
+  // const { user } = useContext(UserContext) || { user: null };
 
   return (
     <header className="">

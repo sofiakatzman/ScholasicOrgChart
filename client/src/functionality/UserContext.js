@@ -36,7 +36,7 @@ export function UserProvider({ children }) {
 
   useEffect(() => {
     console.log(user)
-  }, []);
+  }, [user]);
 
   return (
     <UserContext.Provider value={{ user, setUser, logout, login}}>
