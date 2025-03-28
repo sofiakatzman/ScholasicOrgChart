@@ -1,7 +1,7 @@
 from random import randint
 
 from .app import app
-from models.models import User
+from server.models.models import User
 from .config import db
 
 def seed():
