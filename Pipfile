@@ -19,6 +19,7 @@ requests = "*"
 flask = "*"
 db = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 
