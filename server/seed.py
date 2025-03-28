@@ -1,8 +1,8 @@
 from random import randint
 
-from app import app
+from .app import app
 from models.models import User
-from config import db
+from .config import db
 
 def seed():
     # delete current data
