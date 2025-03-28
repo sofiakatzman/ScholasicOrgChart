@@ -12,7 +12,6 @@ const Authorization = () => {
 
   return (
     <div className="">
-        * this space is for authorization page *
         <AuthCard />
     </div>
   );

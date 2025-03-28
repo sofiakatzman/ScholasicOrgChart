@@ -4,7 +4,7 @@ import Navigation from './Navigation/Navigation';
 const Footer = () => {
   return (
     <footer className="">
-      * this space is for footer element *
+      {/* * this space is for footer element * */}
     </footer>
   );
 };

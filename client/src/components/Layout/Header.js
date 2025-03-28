@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="">
-      * this space is for header element *
+      {/* * this space is for header element * */}
       <Navigation />
     </header>
   )

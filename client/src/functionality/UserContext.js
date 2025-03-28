@@ -35,7 +35,7 @@ export function UserProvider({ children }) {
   };
 
   useEffect(() => {
-    
+    console.log(user)
   }, []);
 
   return (

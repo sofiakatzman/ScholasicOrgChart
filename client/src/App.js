@@ -17,7 +17,7 @@ export default function App() {
         <Header />
           <Routes>
             <Route path="/auth" element={<Authorization />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             {user && <Route path="/useronly" element={<UserOnly />} />}
           </Routes>
         <Footer />
