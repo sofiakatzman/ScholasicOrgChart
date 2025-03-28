@@ -12,7 +12,6 @@ def api_users():
     return jsonify({"message": "API endpoint for users"})
 
 @app.route('/')
-@app.route('/home')
 @app.route('/auth')
 @app.route('/useronly')
 
