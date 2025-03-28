@@ -2,7 +2,7 @@ from random import randint
 
 from app import app
 from server.models.models import User
-from config import db
+from server.config import db
 
 def seed():
     # delete current data
