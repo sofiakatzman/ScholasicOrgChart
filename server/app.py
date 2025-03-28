@@ -1,6 +1,10 @@
 from flask import render_template
-from config import app, jsonify
+from .config import app, jsonify
 from routes.routes import *
+
+# system logging
+import sys
+print(sys.path)
 
 # Import your other modules here (models, routes, etc.)
 
