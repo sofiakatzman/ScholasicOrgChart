@@ -1,6 +1,6 @@
 from random import randint
 
-from app import app
+from server.app import app
 from server.models.models import User
 from server.config import db
 

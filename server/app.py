@@ -1,5 +1,5 @@
 from flask import render_template
-from .config import app, jsonify
+from server.config import app, jsonify
 from server.routes.routes import *
 
 # system logging
