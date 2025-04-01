@@ -11,7 +11,7 @@ const Navigation = () => {
         {/* * this space is for navigation element *  */}
           <NavLink to="/auth">[ auth ] </NavLink>
           <NavLink to="/">[ home ]</NavLink>
-          {user && <NavLink to="/useronly">[ useronly ]</NavLink>}
+          {user && <NavLink to="/org">[ org chart wip ]</NavLink>}
     </div>
   );
 };
