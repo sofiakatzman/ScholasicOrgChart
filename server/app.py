@@ -1,7 +1,7 @@
 from flask import render_template
 from server.config import app, jsonify
 from server.routes.routes import *
-from server.seed import seed
+from server.seed_utils import seed
 from server.models.models import User
 
 # system logging
