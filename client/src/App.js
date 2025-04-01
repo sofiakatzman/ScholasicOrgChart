@@ -4,7 +4,6 @@ import { UserContext } from './functionality/UserContext';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import Authorization from './pages/Authorization';
-import UserOnly from './pages/UserOnly';
 import Home from './pages/Home';
 import './App.css'
 import OrgChartWrapper from './components/OrgChart/OrgChartWrapper';
