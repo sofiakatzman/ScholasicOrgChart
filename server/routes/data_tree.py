@@ -42,7 +42,7 @@ def build_tree(records, root_name="Laura Lundgren"):
                 "id": record_id,
                 "name": name,
                 "title": fields.get("Title", ""),
-                "designation_type": fields.get("Designation Type", ""),
+                "className": fields.get("Designation Type", "").lower().replace(" ", "-") if fields.get("Designation Type") else "",
                 "photo": fields.get("Photo", [{}])[0].get("url", "") if fields.get("Photo") else "",
                 "reports_to": fields.get("Reports to", [None])[0] if isinstance(fields.get("Reports to"), list) else fields.get("Reports to"),
                 "children": []
