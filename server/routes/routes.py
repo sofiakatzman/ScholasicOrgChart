@@ -1,4 +1,4 @@
-from .user import *
-from .auth import *
+from server.routes.user import *
+from server.routes.auth import *
 
 # react front end routes 
