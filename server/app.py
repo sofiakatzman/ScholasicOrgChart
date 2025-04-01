@@ -3,6 +3,7 @@ from config import app, jsonify
 from routes.routes import *
 from seed_utils import seed
 from models.models import User
+from routes.data_tree import build_tree, get_airtable_data
 
 # system logging
 import sys
@@ -20,6 +21,13 @@ def check_and_seed():
 @app.route('/api/users')
 def api_users():
     return jsonify({"message": "API endpoint for users"})
+
+@app.route('/api/org-chart', methods=['GET'])
+def get_org_chart():
+    people_data = get_airtable_data() 
+    print("Building Tree!")
+    org_chart = build_tree(people_data) 
+    return jsonify(org_chart)
 
 @app.route('/')
 @app.route('/auth')
