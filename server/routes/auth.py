@@ -1,6 +1,6 @@
 from flask_restful import Resource
-from server.models.models import User
-from server.config import api, db, request, make_response, abort, session
+from models.models import User
+from config import api, db, request, make_response, abort, session
 
 class Login(Resource):
     def post(self):

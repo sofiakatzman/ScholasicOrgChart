@@ -1,5 +1,5 @@
-from server.models.models import User
-from server.config import db
+from models.models import User
+from config import db
 
 def seed():
     # delete current data

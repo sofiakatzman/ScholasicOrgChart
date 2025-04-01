@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from server.models import *
+from models import *
 
 if __name__ == '__main__':
     engine = create_engine("sqlite:////instance/app.db")

@@ -1,6 +1,6 @@
 from flask_restful import Resource
-from server.models.models import User
-from server.config import api, db, request, make_response, abort, session, jsonify
+from models.models import User
+from config import api, db, request, make_response, abort, session, jsonify
 
 class UserList(Resource):
   def get(self):

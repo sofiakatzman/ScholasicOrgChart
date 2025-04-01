@@ -1,2 +1,2 @@
-from server.models.user import *
+from models.user import *
 

@@ -1,8 +1,8 @@
 from flask import render_template
-from server.config import app, jsonify
-from server.routes.routes import *
-from server.seed_utils import seed
-from server.models.models import User
+from config import app, jsonify
+from routes.routes import *
+from seed_utils import seed
+from models.models import User
 
 # system logging
 import sys
