@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from './functionality/UserContext';
 import Header from './components/Layout/Header';
@@ -13,7 +13,7 @@ export default function App() {
   
   return (
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <Header />
           <Routes>
             <Route path="/auth" element={<Authorization />} />
@@ -21,7 +21,7 @@ export default function App() {
             {user && <Route path="/org" element={<OrgChartWrapper />} />}
           </Routes>
         <Footer />
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
