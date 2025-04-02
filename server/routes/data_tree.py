@@ -29,7 +29,6 @@ def get_airtable_data():
     return response.json()['records']
 
 def build_tree(records, root_name="Laura Lundgren"):
-    # Step 1: Index people by record ID and build name lookup
     people_by_id = {}
     name_to_id = {}
 
@@ -45,24 +44,39 @@ def build_tree(records, root_name="Laura Lundgren"):
                 "className": fields.get("Designation Type", "").lower().replace(" ", "-") if fields.get("Designation Type") else "",
                 "photo": fields.get("Photo", [{}])[0].get("url", "") if fields.get("Photo") else "",
                 "reports_to": fields.get("Reports to", [None])[0] if isinstance(fields.get("Reports to"), list) else fields.get("Reports to"),
-                "children": []
+                "children": [],
+                "collapsed": True  # default to collapsed
             }
             people_by_id[record_id] = person
             name_to_id[name] = record_id
 
-    print("\nIndexed people:")
-    for name in name_to_id:
-        print("-", name)
-
-    # Step 2: Build tree by assigning children to their manager by ID
+    # Step 2: Build tree and track direct reports to Laura
     root = None
+    laura_id = name_to_id.get(root_name)
+    direct_reports = set()
+
     for person in people_by_id.values():
         manager_id = person["reports_to"]
+        if manager_id == laura_id:
+            direct_reports.add(person["id"])
         if manager_id and manager_id in people_by_id:
             people_by_id[manager_id]["children"].append(person)
         elif person["name"] == root_name:
             root = person
 
+    # Step 3: Uncollapse Laura and her direct reports
+    if root:
+        root["collapsed"] = False
+    for report_id in direct_reports:
+        people_by_id[report_id]["collapsed"] = False
+
+    # Add compact flag for those with more than 2 children
+    for person in people_by_id.values():
+        if len(person["children"]) > 2 and person["name"] != root_name:
+            person["compact"] = True
+            person["hybrid"] = True
+
     if not root:
         print(f"\n❗ Root person '{root_name}' not found.")
     return root
+
