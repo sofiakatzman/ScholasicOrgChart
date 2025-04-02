@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from './functionality/UserContext';
 import Header from './components/Layout/Header';
