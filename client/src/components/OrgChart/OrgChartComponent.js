@@ -29,7 +29,7 @@ const OrgChartComponent = () => {
       .nodeHeight(() => 100)
       .childrenMargin(() => 40)
       .compactMarginBetween(() => 15)
-      .layout('top') // options: top, left, right, bottom
+      .layout('left') // options: top, left, right, bottom
       .compactMarginPair(() => 80)
       .nodeContent((d) => `
   <div style="
@@ -48,6 +48,7 @@ const OrgChartComponent = () => {
   </div>
 `)
       .render();
+      chart.fit()
 
   }, [orgData]);
 
