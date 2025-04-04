@@ -3,7 +3,7 @@ from config import app, jsonify
 from routes.routes import *
 from seed_utils import seed
 from models.models import User
-from routes.data_tree import build_tree, get_airtable_data
+from routes.data_tree import build_tree, get_airtable_data, flatten_for_d3_org_chart
 
 # system logging
 import sys
@@ -28,6 +28,13 @@ def get_org_chart():
     print("Building Tree!")
     org_chart = build_tree(people_data) 
     return jsonify(org_chart)
+
+@app.route('/api/org-chart-flat', methods=['GET'])
+def get_org_chart_flat():
+    people_data = get_airtable_data()
+    print("Returning flat org chart!")
+    flat_data = flatten_for_d3_org_chart(people_data)
+    return jsonify(flat_data)
 
 @app.route('/')
 @app.route('/auth')

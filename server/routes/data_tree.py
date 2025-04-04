@@ -80,3 +80,34 @@ def build_tree(records, root_name="Laura Lundgren"):
         print(f"\n❗ Root person '{root_name}' not found.")
     return root
 
+def flatten_for_d3_org_chart(records):
+    flat_data = []
+    existing_ids = {record["id"] for record in records}
+
+    for record in records:
+        fields = record.get("fields", {})
+        record_id = record["id"]
+        name = fields.get("Name")
+        if not name:
+            continue
+
+        entry = {
+            "id": record_id,
+            "name": name,
+            "title": fields.get("Title", ""),
+            "className": fields.get("Designation Type", "").lower().replace(" ", "-") if fields.get("Designation Type") else "",
+            "photo": fields.get("Photo", [{}])[0].get("url", "") if fields.get("Photo") else "",
+        }
+
+        manager = fields.get("Reports to", [None])[0] if isinstance(fields.get("Reports to"), list) else fields.get("Reports to")
+        
+        if manager and manager in existing_ids:
+            entry["parentId"] = manager
+        else:
+            if manager:
+                entry["parentId"] = None
+                print(f"⚠️ Manager {manager} not found for {name} — treating as root.")
+
+        flat_data.append(entry)
+
+    return flat_data

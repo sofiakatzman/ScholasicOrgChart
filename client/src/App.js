@@ -6,6 +6,7 @@ import Authorization from './pages/Authorization';
 import Home from './pages/Home';
 import './App.css'
 import OrgChartWrapper from './components/OrgChart/OrgChartWrapper';
+import OrgChartComponent from './components/OrgChart/OrgChartComponent';
 
 export default function App() {
   const { user } = useContext(UserContext) || { user: null }; 
@@ -18,6 +19,8 @@ export default function App() {
             <Route path="/auth" element={<Authorization />} />
             <Route path="/" element={<Home />} />
             {user && <Route path="/org" element={<OrgChartWrapper />} />}
+            {user && <Route path="/orgv2" element={<OrgChartComponent />} />}
+
           </Routes>
         <Footer />
       </BrowserRouter>
